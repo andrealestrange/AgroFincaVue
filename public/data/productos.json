@@ -1,0 +1,11 @@
+[
+    { "id": 1, "nombre": "Semillas de Maíz", "presentacion": "1 kg", "precio": 18000, "imagen": "img/semillas de maiz.jpg" },
+    { "id": 2, "nombre": "Vitaminas para bovinos", "presentacion": "500 ml", "precio": 48000, "imagen": "img/vitaminas para bovinos.jpg" },
+    { "id": 3, "nombre": "Abono orgánico", "presentacion": "40 kg", "precio": 48000, "imagen": "img/abono organico.webp" },
+    { "id": 4, "nombre": "Herbicida agrícola", "presentacion": "1 L", "precio": 42000, "imagen": "img/herbicida agricola.jpg" },
+    { "id": 5, "nombre": "Concentrado para ganado", "presentacion": "40 kg", "precio": 98000, "imagen": "img/concentrado para ganado.jpg" },
+    { "id": 6, "nombre": "Comedero para ganado", "presentacion": "1 unidad", "precio": 145000, "imagen": "img/comedero para ganado.jpg" },
+    { "id": 7, "nombre": "Alimento para cerdos", "presentacion": "40 kg", "precio": 200000, "imagen": "img/alimento para cerdos.jpg" },
+    { "id": 8, "nombre": "Jeringa veterinaria", "presentacion": "1 unidad", "precio": 35000, "imagen": "img/jeringa veterinaria.jpg" },
+    { "id": 9, "nombre": "Fertilizante NPK", "presentacion": "50 kg", "precio": 120000, "imagen": "img/comedero para ganado.jpg" }
+  ]

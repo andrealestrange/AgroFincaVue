@@ -1,31 +1,23 @@
 import { defineStore } from 'pinia'
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
 
 export const useProductosStore = defineStore('productos', () => {
-  const productos = ref(JSON.parse(localStorage.getItem('productos')) || [])
+  const productos = ref([])
   const loading = ref(false)
   const error = ref(null)
-
-  // persistencia: cada cambio se guarda en localStorage
-  watch(productos, (v) => localStorage.setItem('productos', JSON.stringify(v)), { deep: true })
 
   async function cargarProductos() {
     if (productos.value.length) return
     loading.value = true
     error.value = null
     try {
-      const res = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=6')
-      if (!res.ok) throw new Error(`Error HTTP ${res.status}`)
-      const data = await res.json()
-      productos.value = data.map((p) => ({
-        id: p.id,
-        nombre: p.title,
-        categoria: 'Verdura',
-        precio: 5000,
-        cantidad: 10,
-        fecha: '2026-11-01',
-        descripcion: p.body,
-      }))
+      const res = await fetch('/data/productos.json')
+      if (!res.ok) {
+        if (res.status === 404) throw new Error('No se encontró el archivo de productos (error 404).')
+        if (res.status >= 500) throw new Error('El servidor tuvo un problema (error ' + res.status + ').')
+        throw new Error('No se pudieron cargar los productos (código ' + res.status + ').')
+      }
+      productos.value = await res.json()
     } catch (e) {
       error.value = e.message
     } finally {
